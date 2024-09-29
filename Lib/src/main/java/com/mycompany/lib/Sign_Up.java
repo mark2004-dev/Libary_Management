@@ -61,7 +61,7 @@ public class Sign_Up extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(102, 255, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/lib/icon/sign_up.png"))); // NOI18N
+         // NOI18N
         jButton1.setText("Đăng Ký");
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 172, 52));
 
