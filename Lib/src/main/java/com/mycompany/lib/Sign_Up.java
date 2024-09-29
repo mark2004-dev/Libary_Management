@@ -4,6 +4,10 @@
  */
 package com.mycompany.lib;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 /**
  *
  * @author Zenus
@@ -31,16 +35,20 @@ public class Sign_Up extends javax.swing.JFrame {
         menu2 = new java.awt.Menu();
         jSeparator2 = new javax.swing.JSeparator();
         jButton4 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jCheckBox1 = new javax.swing.JCheckBox();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
 
         menu1.setLabel("File");
         menuBar1.add(menu1);
@@ -58,35 +66,27 @@ public class Sign_Up extends javax.swing.JFrame {
         setBackground(new java.awt.Color(204, 51, 0));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(102, 255, 255));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-         // NOI18N
-        jButton1.setText("Đăng Ký");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 172, 52));
-
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Tài khoản:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 147, 82, 47));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, 82, 47));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Mật khẩu:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 254, 82, 46));
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 255, 519, 46));
-
-        jCheckBox1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(204, 0, 51));
-        jCheckBox1.setText("Tôi không phải người máy");
-        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 307, -1, 42));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 82, 46));
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton2.setText("Đăng ký");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 376, -1, -1));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, -1, -1));
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton3.setText("Bạn đã có tài khoản");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(448, 376, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 148, 519, 47));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, -1, -1));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 127, 280, 30));
 
         jSeparator1.setForeground(new java.awt.Color(255, 255, 0));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 355, 680, 15));
@@ -97,9 +97,60 @@ public class Sign_Up extends javax.swing.JFrame {
         jSeparator3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jSeparator3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 102, 680, 13));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 280, -1));
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 280, 30));
+
+        jLabel1.setText("email");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 150, -1));
+
+        jLabel4.setText("Nhap Lai Mat Khau");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 150, -1));
+
+        jLabel5.setText("sdt");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, -1, -1));
+        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 280, -1));
+        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 232, 280, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    //DANG KY
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String taikhoan = jTextField1.getText();
+        String matkhau = jTextField3.getText();
+        String nhaplai = jTextField5.getText();
+        String email = jTextField4.getText();
+        String sdt = jTextField2.getText();
+        int ketQua = 0;
+        try {
+            // Bước 1: tạo kết nối đến CSDL
+            Connection con = jdbcUtil.getConnection();
+
+            // Bước 2: tạo ra đối tượng statement
+            String sql = "INSERT INTO nguoidung ( tentk, email, matkhau, sodienthoai) "
+                    + " VALUES (?,?,?,?)";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1, taikhoan);
+            st.setString(2, email);
+            st.setString(3, matkhau);
+            st.setString(4, sdt);
+
+            // Bước 3: thực thi câu lệnh SQL
+            ketQua = st.executeUpdate();
+
+            // Bước 4:
+            System.out.println("Bạn đã thực thi: " + sql);
+            System.out.println("Có " + ketQua + " dòng bị thay đổi!");
+
+            // Bước 5:
+            jdbcUtil.closeConnection(con);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,18 +188,22 @@ public class Sign_Up extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     private java.awt.Menu menu1;
     private java.awt.Menu menu2;
     private java.awt.MenuBar menuBar1;
