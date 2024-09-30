@@ -4,6 +4,8 @@
  */
 package com.mycompany.lib;
 
+import java.awt.Toolkit;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -19,6 +21,12 @@ public class Sign_Up extends javax.swing.JFrame {
      */
     public Sign_Up() {
         initComponents();
+         URL iconURL = getClass().getResource("/com/mycompany/lib/icon/account.png");
+        if (iconURL != null) {
+            setIconImage(Toolkit.getDefaultToolkit().getImage(iconURL));
+        } else {
+            System.err.println("Icon resource not found.");
+        }
     }
 
     /**
