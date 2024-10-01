@@ -1,5 +1,8 @@
-D:\QuanLiThuVien\Lib\src\main\java\com\mycompany\lib\Login.java
-D:\QuanLiThuVien\Lib\src\main\java\com\mycompany\lib\adminlib.java
-D:\QuanLiThuVien\Lib\src\main\java\com\mycompany\lib\jdbcUtil.java
-D:\QuanLiThuVien\Lib\src\main\java\com\mycompany\lib\Lib.java
-D:\QuanLiThuVien\Lib\src\main\java\com\mycompany\lib\Sign_Up.java
+C:\Libary_Management\Lib\src\main\java\com\mycompany\lib\Login.java
+C:\Libary_Management\Lib\src\main\java\com\mycompany\lib\dao\DAOinterfacee.java
+C:\Libary_Management\Lib\src\main\java\com\mycompany\lib\Lib.java
+C:\Libary_Management\Lib\src\main\java\com\mycompany\lib\entity\nguoidung.java
+C:\Libary_Management\Lib\src\main\java\com\mycompany\lib\Sign_Up.java
+C:\Libary_Management\Lib\src\main\java\com\mycompany\lib\adminlib.java
+C:\Libary_Management\Lib\src\main\java\com\mycompany\lib\dao\nguoidungDAO.java
+C:\Libary_Management\Lib\src\main\java\com\mycompany\lib\jdbcUtil.java

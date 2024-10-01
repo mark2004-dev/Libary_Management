@@ -9,6 +9,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -62,6 +63,7 @@ public class Sign_Up extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
 
         menu1.setLabel("File");
         menuBar1.add(menu1);
@@ -88,7 +90,6 @@ public class Sign_Up extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(255, 255, 0));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Đăng ký");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,8 +100,12 @@ public class Sign_Up extends javax.swing.JFrame {
 
         jButton3.setBackground(new java.awt.Color(255, 255, 0));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("Bạn đã có tài khoản");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 440, -1, -1));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, 280, 40));
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 360, 280, 40));
@@ -125,7 +130,6 @@ public class Sign_Up extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/lib/icon/book-reading.png"))); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("QUẢN LÍ THƯ VIỆN");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -164,52 +168,75 @@ public class Sign_Up extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(51, 255, 204));
         jButton1.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/lib/icon/readers.png"))); // NOI18N
         jButton1.setText("Đăng Ký");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 30, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 80, 280, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     //DANG KY
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String taikhoan = jTextField1.getText();
+         String taikhoan = jTextField1.getText();
         String matkhau = jTextField3.getText();
         String nhaplai = jTextField5.getText();
         String email = jTextField4.getText();
         String sdt = jTextField2.getText();
+        String baoloi = "";
         int ketQua = 0;
-        try {
-            // Bước 1: tạo kết nối đến CSDL
-            Connection con = jdbcUtil.getConnection();
 
-            // Bước 2: tạo ra đối tượng statement
-            String sql = "INSERT INTO nguoidung ( tentk, email, matkhau, sodienthoai) "
-                    + " VALUES (?,?,?,?)";
-            PreparedStatement st = con.prepareStatement(sql);
-            st.setString(1, taikhoan);
-            st.setString(2, email);
-            st.setString(3, matkhau);
-            st.setString(4, sdt);
-
-            // Bước 3: thực thi câu lệnh SQL
-            ketQua = st.executeUpdate();
-
-            // Bước 4:
-            System.out.println("Bạn đã thực thi: " + sql);
-            System.out.println("Có " + ketQua + " dòng bị thay đổi!");
-
-            // Bước 5:
-            jdbcUtil.closeConnection(con);
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+        String EMAIL_REGEX = "^[\\w-\\.]+@[\\w-]+\\.[a-z]{2,}$";
+        if (!matkhau.equals(nhaplai)) {
+            baoloi = "mật khẩu nhập lại phải trùng với mật khẩu";
+        } else if (taikhoan.equals("") || matkhau.equals("") || email.equals("") || nhaplai.equals("") || sdt.equals("")) {
+            baoloi = "thông tin không được để trống";
+        }else if(sdt.length()>10||sdt.length()<10){
+            baoloi = "số điện thoại phải 10 số";
         }
+        
+        else if (!Pattern.matches(EMAIL_REGEX, email)) {
+            baoloi = "Email không đúng định dạng";
+        } else {
+            try {
+                // Bước 1: tạo kết nối đến CSDL
+                Connection con = jdbcUtil.getConnection();
 
+                // Bước 2: tạo ra đối tượng statement
+                String sql = "INSERT INTO nguoidung ( tentk, email, matkhau, sodienthoai) "
+                        + " VALUES (?,?,?,?)";
+                PreparedStatement st = con.prepareStatement(sql);
+                st.setString(1, taikhoan);
+                st.setString(2, email);
+                st.setString(3, matkhau);
+                st.setString(4, sdt);
+
+                // Bước 3: thực thi câu lệnh SQL
+                ketQua = st.executeUpdate();
+
+                // Bước 4:
+                System.out.println("Bạn đã thực thi: " + sql);
+                System.out.println("Có " + ketQua + " dòng bị thay đổi!");
+
+                // Bước 5:
+                jdbcUtil.closeConnection(con);
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            baoloi="dang ky thanh cong";
+        }
+        jLabel9.setText(baoloi);
         
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        adminlib ad= new adminlib();
+        ad.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,6 +286,7 @@ public class Sign_Up extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
