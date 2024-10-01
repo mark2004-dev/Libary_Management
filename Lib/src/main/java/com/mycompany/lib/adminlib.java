@@ -118,6 +118,11 @@ public adminlib() {
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/lib/icon/log-out.png"))); // NOI18N
         jButton7.setText(bundle.getString("adminlib.jButton7.text")); // NOI18N
         jButton7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jSeparator1.setForeground(new java.awt.Color(255, 255, 0));
 
@@ -190,6 +195,10 @@ public adminlib() {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
 
 /**
  * @param args the command line arguments
