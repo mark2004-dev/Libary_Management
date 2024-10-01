@@ -3,3 +3,6 @@ D:\QuanLiThuVien\Lib\src\main\java\com\mycompany\lib\adminlib.java
 D:\QuanLiThuVien\Lib\src\main\java\com\mycompany\lib\jdbcUtil.java
 D:\QuanLiThuVien\Lib\src\main\java\com\mycompany\lib\Lib.java
 D:\QuanLiThuVien\Lib\src\main\java\com\mycompany\lib\Sign_Up.java
+D:\QuanLiThuVien\Lib\src\main\java\com\mycompany\lib\entity\nguoidung.java
+D:\QuanLiThuVien\Lib\src\main\java\com\mycompany\lib\dao\nguoidungDAO.java
+D:\QuanLiThuVien\Lib\src\main\java\com\mycompany\lib\dao\DAOinterfacee.java

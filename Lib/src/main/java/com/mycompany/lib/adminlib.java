@@ -13,6 +13,7 @@ import java.net.URL;
  * @author Zenus
  */
 public class adminlib extends javax.swing.JFrame {
+    
 
 /**
  * Creates new form adminlib
@@ -48,6 +49,8 @@ public adminlib() {
         jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("com/mycompany/lib/Bundle"); // NOI18N
+        setTitle(bundle.getString("adminlib.title")); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
         jPanel1.setForeground(new java.awt.Color(0, 255, 204));
@@ -55,9 +58,8 @@ public adminlib() {
         jPanel2.setBackground(new java.awt.Color(0, 102, 102));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(255, 204, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/lib/icon/book-reading.png"))); // NOI18N
-        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("com/mycompany/lib/Bundle"); // NOI18N
         jLabel1.setText(bundle.getString("adminlib.jLabel1.text")); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -79,42 +81,36 @@ public adminlib() {
 
         jButton2.setBackground(new java.awt.Color(204, 255, 204));
         jButton2.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/lib/icon/staff-management.png"))); // NOI18N
         jButton2.setText(bundle.getString("adminlib.jButton2.text")); // NOI18N
         jButton2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jButton3.setBackground(new java.awt.Color(204, 255, 204));
         jButton3.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/lib/icon/return.png"))); // NOI18N
         jButton3.setText(bundle.getString("adminlib.jButton3.text")); // NOI18N
         jButton3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jButton4.setBackground(new java.awt.Color(204, 255, 204));
         jButton4.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/lib/icon/shelf.png"))); // NOI18N
         jButton4.setText(bundle.getString("adminlib.jButton4.text")); // NOI18N
         jButton4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jButton5.setBackground(new java.awt.Color(204, 255, 204));
         jButton5.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(0, 0, 0));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/lib/icon/literacy.png"))); // NOI18N
         jButton5.setText(bundle.getString("adminlib.jButton5.text")); // NOI18N
         jButton5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jButton6.setBackground(new java.awt.Color(204, 255, 204));
         jButton6.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(0, 0, 0));
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/lib/icon/borrow.png"))); // NOI18N
         jButton6.setText(bundle.getString("adminlib.jButton6.text")); // NOI18N
         jButton6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jButton7.setBackground(new java.awt.Color(204, 255, 204));
         jButton7.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(0, 0, 0));
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/lib/icon/log-out.png"))); // NOI18N
         jButton7.setText(bundle.getString("adminlib.jButton7.text")); // NOI18N
         jButton7.setBorder(javax.swing.BorderFactory.createEtchedBorder());

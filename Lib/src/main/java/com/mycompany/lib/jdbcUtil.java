@@ -24,7 +24,7 @@ public class jdbcUtil {
 			// Các thông số
 			String url = "jdbc:mysql://localhost:3306/sach";
 			String username = "root";
-			String password = "123456789";
+			String password = "112233";
 			
 			// Tạo kết nối
 			c = DriverManager.getConnection(url, username, password);
